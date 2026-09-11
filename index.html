@@ -1,0 +1,1418 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="체코·오스트리아 11일 여행 일정표와 지도, 구글맵 평점순 맛집·관광지 목록">
+<style>html{color-scheme:light dark}body{margin:0;font:14px/1.6 system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>프라하에서 비엔나까지</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --paper:#F2F4F7; --surface:#FFFFFF; --surface-2:#F8FAFC;
+  --ink:#191D24; --ink-2:#5A6371; --ink-3:#8A93A1;
+  --rule:#DCE1E8; --rule-soft:#E8ECF1;
+  --garnet:#8A1B2E; --garnet-soft:#F3E3E6;
+  --gelb:#9A7415; --gelb-soft:#F5EDDA;
+  --shadow:0 1px 2px rgba(20,26,36,.05), 0 6px 18px -10px rgba(20,26,36,.18);
+  --focus:#8A1B2E;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#12151A; --surface:#1A1E25; --surface-2:#20252D;
+    --ink:#E9ECF1; --ink-2:#A2ABB9; --ink-3:#79828F;
+    --rule:#2B313A; --rule-soft:#242A32;
+    --garnet:#E58095; --garnet-soft:#332126;
+    --gelb:#E0B75E; --gelb-soft:#2C2618;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.8);
+    --focus:#E58095;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#12151A; --surface:#1A1E25; --surface-2:#20252D;
+  --ink:#E9ECF1; --ink-2:#A2ABB9; --ink-3:#79828F;
+  --rule:#2B313A; --rule-soft:#242A32;
+  --garnet:#E58095; --garnet-soft:#332126;
+  --gelb:#E0B75E; --gelb-soft:#2C2618;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.8);
+  --focus:#E58095;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;
+  font-size:15px; line-height:1.6; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:820px; margin:0 auto; padding:0 20px; padding-block:0 64px}
+a{color:inherit}
+
+/* masthead */
+.masthead{padding-block:44px 26px; border-bottom:1px solid var(--rule)}
+.eyebrow{
+  margin:0 0 14px; font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--garnet);
+}
+h1{
+  margin:0; font-family:"Gowun Batang",Georgia,serif; font-weight:700;
+  font-size:clamp(30px,7vw,46px); line-height:1.18; letter-spacing:-.01em; text-wrap:balance;
+}
+.route{
+  list-style:none; margin:20px 0 0; padding:0;
+  display:flex; flex-wrap:wrap; gap:6px 0; align-items:center;
+}
+.route li{display:flex; align-items:center; gap:10px; font-size:13px; color:var(--ink-2)}
+.route li + li::before{content:""; width:14px; height:1px; background:var(--rule); display:block}
+.route b{font-weight:600; color:var(--ink)}
+.route .n{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--garnet);
+  background:var(--garnet-soft); border-radius:3px; padding:1px 5px; margin-left:4px;
+}
+.meta{margin:18px 0 0; font-size:13px; color:var(--ink-3); line-height:1.7}
+.lg-me{color:var(--garnet); font-weight:600}
+.lg-both{color:var(--gelb); font-weight:600}
+
+/* city nav */
+.jump{
+  position:sticky; top:0; z-index:5; background:var(--paper);
+  border-bottom:1px solid var(--rule); margin-bottom:8px;
+}
+.jump ul{
+  list-style:none; margin:0; padding:10px 0; display:flex; gap:18px;
+  overflow-x:auto; scrollbar-width:none;
+}
+.jump ul::-webkit-scrollbar{display:none}
+.jump a{
+  text-decoration:none; white-space:nowrap; font-size:13px; font-weight:500; color:var(--ink-2);
+  padding-bottom:2px; border-bottom:1.5px solid transparent;
+}
+.jump a:hover{color:var(--garnet); border-bottom-color:var(--garnet)}
+
+/* city */
+.city{padding-block:38px 8px; scroll-margin-top:52px}
+.city-head{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+.city h2{
+  margin:0; font-family:"Gowun Batang",Georgia,serif; font-weight:700;
+  font-size:26px; letter-spacing:-.01em;
+}
+.stay{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.08em;
+  color:var(--gelb); background:var(--gelb-soft); padding:3px 8px; border-radius:3px;
+}
+.grp{
+  display:flex; align-items:baseline; justify-content:space-between; gap:12px;
+  margin:28px 0 10px; padding-bottom:7px; border-bottom:1px solid var(--rule);
+  font-size:12px; font-weight:600; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-2);
+}
+.grp-n{font-family:"IBM Plex Mono",monospace; font-weight:400; letter-spacing:0; color:var(--ink-3); text-transform:none}
+
+/* rows */
+.rows{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.row{border-bottom:1px solid var(--rule-soft)}
+.row:last-child{border-bottom:0}
+.hit{
+  display:grid; grid-template-columns:1fr auto; gap:14px; align-items:start;
+  text-decoration:none; padding:13px 10px 13px 2px; margin:0 -10px 0 -2px; border-radius:6px;
+}
+.hit:hover{background:var(--surface)}
+.hit:focus-visible{outline:2px solid var(--focus); outline-offset:1px}
+.names{display:flex; flex-direction:column; gap:2px; min-width:0}
+.ko{font-size:15.5px; font-weight:600; letter-spacing:-.005em}
+.en{font-size:13px; color:var(--ink-2); word-break:break-word}
+.addr{font-size:12px; color:var(--ink-3); word-break:break-word}
+.score{
+  display:flex; flex-direction:column; align-items:flex-end; gap:1px;
+  font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums;
+}
+.score .num{font-size:19px; font-weight:500; line-height:1.15}
+.score .rev{font-size:11px; color:var(--ink-3)}
+.t-a .num{color:var(--garnet)}
+.t-b .num{color:var(--ink)}
+.t-c .num{color:var(--gelb)}
+.t-none .num{color:var(--ink-3)}
+.tag{
+  display:inline-block; margin-left:7px; vertical-align:1px;
+  font-family:"IBM Plex Sans KR",sans-serif; font-size:10.5px; font-weight:500; letter-spacing:.02em;
+  padding:1px 6px; border-radius:3px; white-space:nowrap;
+}
+.tag-me{color:var(--garnet); border:1px solid var(--garnet); background:transparent}
+.tag-both{color:var(--gelb); background:var(--gelb-soft); border:1px solid transparent}
+.note,.sub{
+  margin:-4px 0 12px; padding-left:2px; font-size:12.5px; color:var(--ink-2); line-height:1.6;
+}
+.note{border-left:2px solid var(--garnet); padding-left:9px; margin-left:0}
+.sub{font-size:12px; color:var(--ink-3)}
+
+/* dishes */
+.dishes{padding-block:40px 8px}
+.dishes h2{margin:0 0 6px; font-family:"Gowun Batang",Georgia,serif; font-size:26px; font-weight:700}
+.dishes .lead{margin:0 0 4px; font-size:13.5px; color:var(--ink-2); max-width:62ch}
+.dish{margin-top:22px}
+.dish-h{
+  display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px; margin:0 0 8px;
+}
+.dish-ko{font-family:"Gowun Batang",Georgia,serif; font-size:19px; font-weight:700; letter-spacing:-.01em}
+.dish-en{font-size:12.5px; color:var(--ink-3); font-weight:400}
+.dish .note{margin:0 0 10px}
+.dish-list{list-style:none; margin:0; padding:0; display:grid; gap:8px}
+.dish-list li{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px}
+.dish-list .d{font-weight:600; font-size:14.5px}
+.dish-list .g{font-size:12.5px; color:var(--ink-3)}
+
+/* 일정표 */
+.plan{padding-block:40px 8px}
+.plan h2,.mapsec h2{margin:0 0 6px; font-family:"Gowun Batang",Georgia,serif; font-size:26px; font-weight:700}
+.plan .lead,.mapsec .lead{margin:0 0 4px; font-size:13.5px; color:var(--ink-2); max-width:62ch}
+.day{margin-top:30px}
+.day-h{display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 10px; margin:0 0 6px;
+  padding-bottom:7px; border-bottom:1px solid var(--rule)}
+.day-d{font-family:"IBM Plex Mono",monospace; font-size:17px; font-weight:500; color:var(--garnet)}
+.day-w{font-size:11px; color:var(--ink-3); background:var(--rule-soft); padding:2px 6px; border-radius:3px}
+.day-t{font-family:"Gowun Batang",Georgia,serif; font-size:18px; font-weight:700}
+.day-sub{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 14px; margin:0 0 10px}
+.day-n{font-size:12.5px; color:var(--ink-3)}
+.day-map{font-size:12px; color:var(--garnet); text-decoration:none;
+  border-bottom:1px solid var(--garnet); padding-bottom:1px}
+.day-map:hover{opacity:.75}
+.slots{list-style:none; margin:0; padding:0; display:flex; flex-direction:column}
+.slot{display:grid; grid-template-columns:58px 1fr; gap:12px; align-items:baseline;
+  padding:7px 0; border-bottom:1px solid var(--rule-soft)}
+.slot:last-child{border-bottom:0}
+.slot-t{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums;
+  font-size:12.5px; color:var(--ink-3)}
+.slot-x{display:flex; flex-direction:column; gap:2px; min-width:0}
+.slot-txt{font-size:14px; line-height:1.5}
+.slot-map{font-size:11.5px; color:var(--garnet); text-decoration:none; align-self:flex-start;
+  border-bottom:1px dotted var(--garnet); padding-bottom:1px}
+.slot-map::before{content:"◎ "; }
+.slot-map:hover{opacity:.75}
+
+/* 예약·확인 */
+.notes{padding-block:40px 8px}
+.notes h2{margin:0 0 6px; font-family:"Gowun Batang",Georgia,serif; font-size:26px; font-weight:700}
+.notes .lead{margin:0 0 4px; font-size:13.5px; color:var(--ink-2); max-width:62ch}
+.ngroup{margin-top:26px; padding-left:14px; border-left:2px solid var(--rule)}
+.ngroup h3{display:flex; align-items:baseline; gap:9px; margin:0 0 9px;
+  font-size:12px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-2)}
+.ncount{font-family:"IBM Plex Mono",monospace; font-weight:400; letter-spacing:0;
+  font-size:11px; color:var(--ink-3); text-transform:none}
+.ngroup ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:7px}
+.ngroup li{font-size:13.5px; line-height:1.6; padding-left:13px; position:relative; max-width:70ch}
+.ngroup li::before{content:""; position:absolute; left:0; top:.62em;
+  width:4px; height:4px; border-radius:50%; background:var(--ink-3)}
+.n-book{border-left-color:var(--garnet)}
+.n-book li::before{background:var(--garnet)}
+.n-check{border-left-color:var(--gelb)}
+.n-check li::before{background:var(--gelb)}
+
+/* memo */
+.memo{padding-block:44px 0; margin-top:36px; border-top:1px solid var(--rule)}
+.memo h2{margin:0 0 6px; font-family:"Gowun Batang",Georgia,serif; font-size:22px; font-weight:700}
+.memo p.lead{margin:0 0 20px; font-size:13.5px; color:var(--ink-2)}
+.memo figure{margin:0; background:var(--surface); border:1px solid var(--rule); border-radius:8px; padding:14px; box-shadow:var(--shadow)}
+.memo img{display:block; width:100%; max-width:100%; height:auto; border-radius:4px}
+.memo figcaption{margin-top:12px; font-size:12px; color:var(--ink-3)}
+blockquote{
+  margin:26px 0 0; padding:16px 18px; background:var(--gelb-soft); border-radius:6px;
+  font-family:"Gowun Batang",Georgia,serif; font-size:16px; line-height:1.65; color:var(--ink);
+}
+blockquote cite{display:block; margin-top:8px; font-family:"IBM Plex Sans KR",sans-serif; font-size:12px; font-style:normal; color:var(--ink-3)}
+
+footer{margin-top:40px; padding-top:18px; border-top:1px solid var(--rule); font-size:12px; color:var(--ink-3); line-height:1.8}
+
+@media (max-width:460px){
+  .wrap{padding:0 16px; padding-block:0 48px}
+  .hit{gap:10px; padding:12px 8px 12px 2px}
+  .score .num{font-size:17px}
+  .ko{font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+
+<div class="wrap">
+<header class="masthead">
+  <p class="eyebrow">부모님 손글씨 메모 → 구글맵 정리</p>
+  <h1>프라하에서 비엔나까지</h1>
+  <ol class="route">
+<li><b>프라하</b><span class="n">3박</span></li>
+<li><b>체스키크룸로프</b></li>
+<li><b>잘츠부르크</b><span class="n">1박</span></li>
+<li><b>할슈타트</b><span class="n">당일</span></li>
+<li><b>비엔나</b><span class="n">4박</span></li>
+  </ol>
+  <p class="meta">
+    메모에 적힌 곳을 구글맵에서 찾아 <b>정식 이름 · 평점 · 리뷰 수 · 주소</b>로 정리했습니다. 각 도시 안에서 평점 높은 순, 평점이 같으면 리뷰가 많은 순입니다.<br>
+    이름을 누르면 구글맵이 열립니다 · 2026년 9월 11일 조회 기준<br>
+    표시 없는 곳은 부모님 메모, <b class="lg-me">내 리스트</b>는 내가 적은 곳, <b class="lg-both">둘 다</b>는 양쪽에 다 있는 곳입니다.
+  </p>
+</header>
+
+<nav class="jump" aria-label="도시 바로가기">
+  <ul>
+<li><a href="#plan">일정표</a></li>
+<li><a href="#prague">프라하</a></li>
+<li><a href="#krumlov">체스키크룸로프</a></li>
+<li><a href="#alps">잘츠부르크·할슈타트</a></li>
+<li><a href="#wien">비엔나</a></li>
+<li><a href="#notes">예약·확인</a></li>
+<li><a href="#dishes">메뉴별 가게</a></li>
+<li><a href="#memo">원본 메모</a></li>
+  </ul>
+</nav>
+
+<main>
+<section class="plan" id="plan">
+  <h2>일정표</h2>
+  <p class="lead">엑셀에 채운 것과 같은 내용입니다. 시간마다 붙은 <b>◎ 장소 이름</b>을 누르면 구글맵이 열립니다.</p>
+<article class="day">
+<h3 class="day-h"><span class="day-d">9/28</span><span class="day-w">월</span><span class="day-t">프라하 도착</span></h3>
+<p class="day-sub"><span class="day-n">체코 국경일 — 대형마트 휴무</span></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">프라하 공항 도착</span></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">숙소 이동 (1시간)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">20:00</span><span class="slot-x"><span class="slot-txt">체크인 및 휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">21:00</span><span class="slot-x"><span class="slot-txt">숙소 근처에서 가볍게 저녁 · 물과 간식은 공항이나 중앙역 매장에서 (국경일이라 대형마트 휴무)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">22:00</span><span class="slot-x"><span class="slot-txt">휴식 — 시차 적응, 첫날은 여기까지</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">9/29</span><span class="day-w">화</span><span class="day-t">프라하 — 구시가지</span></h3>
+<p class="day-sub"><span class="day-n">전부 도보권 · 오후는 숙소에서 쉼</span> <a class="day-map" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=50.084812,14.433063&destination=50.084812,14.433063&waypoints=50.087062,14.420687%7C50.084812,14.420938%7C50.083562,14.428937%7C50.086187,14.418063%7C50.087312,14.427063%7C50.084812,14.433063%7C50.087562,14.418188" target="_blank" rel="noopener">이 날 동선을 구글맵에서 열기 (도보) →</a></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">08:00</span><span class="slot-x"><span class="slot-txt">호텔 조식 · 천천히 출발</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">09:00</span><span class="slot-x"><span class="slot-txt">도보 이동 — 바츨라프 광장 → 구시가지 광장 (20분)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Starom%C4%9Bstsk%C3%A1%20radnice%2C%20Starom%C4%9Bstsk%C3%A9%20n%C3%A1m.%201/3%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">구시청사 · 천문시계</a></span></li>
+<li class="slot"><span class="slot-t">10:00</span><span class="slot-x"><span class="slot-txt">구시청사 + 천문시계 · 탑 전망대 엘리베이터</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Starom%C4%9Bstsk%C3%A1%20radnice%2C%20Starom%C4%9Bstsk%C3%A9%20n%C3%A1m.%201/3%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">구시청사 · 천문시계</a></span></li>
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">하벨 시장 · 구시가지 골목 천천히</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Havel%27s%20Market%2C%20Havelsk%C3%A1%2013%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">하벨 시장</a></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">점심 — 칸티나 Kantýna (앉아서 먹는 정육식당 · 육회 타르타르)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Kant%C3%BDna%2C%20Politick%C3%BDch%20v%C4%9Bz%C5%88%C5%AF%201511/5%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">칸티나</a></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">디저트 — 뜨르들로 Good Food (빵+아이스크림)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Good%20Food%20Coffee%20%26%20Bakery%2C%20Husova%20157/18%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">굿푸드 (뜨르들로)</a></span></li>
+<li class="slot"><span class="slot-t">14:00</span><span class="slot-x"><span class="slot-txt">(선택) 클래식 카 투어 — Prague old car, 약 60분</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Prague%20old%20car%20Ltd.%2C%20Celetn%C3%A1%201078%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">클래식 카 투어</a></span></li>
+<li class="slot"><span class="slot-t">15:00</span><span class="slot-x"><span class="slot-txt">숙소 복귀 · 낮잠 / 휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">16:00</span><span class="slot-x"><span class="slot-txt">휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">17:00</span><span class="slot-x"><span class="slot-txt">휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">저녁 — 조지프라임 스테이크하우스 (T본 스테이크 · 예약 필수)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=George%20Prime%20Steak%2C%20Platn%C3%A9%C5%99sk%C3%A1%20111/19%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">조지프라임 스테이크</a></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">(선택) 바츨라프 광장 야경 산책</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">20:00</span><span class="slot-x"><span class="slot-txt">숙소 복귀 · 휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">9/30</span><span class="day-w">수</span><span class="day-t">프라하 — 프라하성</span></h3>
+<p class="day-sub"><span class="day-n">트램으로 올라가 걸어 내려오기</span> <a class="day-map" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=50.084812,14.433063&destination=50.084812,14.433063&waypoints=50.090937,14.400563%7C50.087687,14.403562%7C50.087562,14.406063%7C50.086437,14.411437%7C50.084812,14.433063%7C50.082187,14.419563%7C50.090687,14.425813%7C50.087062,14.420687" target="_blank" rel="noopener">이 날 동선을 구글맵에서 열기 (도보) →</a></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">08:00</span><span class="slot-x"><span class="slot-txt">호텔 조식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">09:00</span><span class="slot-x"><span class="slot-txt">트램 22번으로 프라하성 이동 — 언덕 위에서 시작</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=St.%20Vitus%20Cathedral%2C%20Prague%20Castle" target="_blank" rel="noopener" title="구글맵에서 열기">성 비투스 대성당</a></span></li>
+<li class="slot"><span class="slot-t">10:00</span><span class="slot-x"><span class="slot-txt">성 비투스 대성당</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=St.%20Vitus%20Cathedral%2C%20Prague%20Castle" target="_blank" rel="noopener" title="구글맵에서 열기">성 비투스 대성당</a></span></li>
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">(선택) 황금소로 · 전망 포인트 — 컨디션 보고 생략해도 됨</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=St.%20Vitus%20Cathedral%2C%20Prague%20Castle" target="_blank" rel="noopener" title="구글맵에서 열기">성 비투스 대성당</a></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">네루도바 거리 따라 말라스트라나로 천천히 하산</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=U%20Glaubic%C5%AF%2C%20Malostransk%C3%A9%20n%C3%A1m.%20266/5%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">우 글라우비추</a></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">점심 — 포크스 말라스트라나점 Pork&#x27;s Mostecka (꼴레뇨)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Pork%27s%20Mostecka%2C%20Mosteck%C3%A1%2016%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">포크스 말라스트라나</a></span></li>
+<li class="slot"><span class="slot-t">14:00</span><span class="slot-x"><span class="slot-txt">카를교 — 끝까지 다 걷지 않아도 됩니다</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Charles%20Bridge%2C%20Praha%201" target="_blank" rel="noopener" title="구글맵에서 열기">카를교</a></span></li>
+<li class="slot"><span class="slot-t">15:00</span><span class="slot-x"><span class="slot-txt">숙소 복귀 · 낮잠 / 휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">16:00</span><span class="slot-x"><span class="slot-txt">휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">17:00</span><span class="slot-x"><span class="slot-txt">테스코 장보기 — 마렝카 · 구워먹는 치즈 · 요플레 (평일이라 정상 영업)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Tesco%2C%20N%C3%A1rodn%C3%AD%2063/26%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">테스코</a></span></li>
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">저녁 — 컨디션 보고 결정 · 로칼 Lokál Dlouhááá(굴라쉬·헤르멜린) 또는 숙소 근처</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Lok%C3%A1l%20Dlouh%C3%A1%C3%A1%C3%A1%2C%20Dlouh%C3%A1%2033%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">로칼 Dlouhááá</a></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">(선택) 구시가지 야경</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Starom%C4%9Bstsk%C3%A1%20radnice%2C%20Starom%C4%9Bstsk%C3%A9%20n%C3%A1m.%201/3%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">구시청사 · 천문시계</a></span></li>
+<li class="slot"><span class="slot-t">20:00</span><span class="slot-x"><span class="slot-txt">숙소 복귀 · 내일 08:00 출발 짐 정리</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">10/1</span><span class="day-w">목</span><span class="day-t">체스키크룸로프 → 잘츠부르크</span></h3>
+<p class="day-sub"><span class="day-n">CK 셔틀 17:00 확정 · 15시 이후는 앉아서 쉬는 시간</span> <a class="day-map" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=50.084812,14.433063&destination=47.815187,13.044063&waypoints=48.811812,14.315688%7C48.810687,14.317313%7C48.811812,14.315688" target="_blank" rel="noopener">이 날 동선을 구글맵에서 열기 (도보) →</a></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">07:00</span><span class="slot-x"><span class="slot-txt">체크아웃</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Miss%20Sophie%27s%20Downtown%2C%20Opletalova%2039%2C%20Praha" target="_blank" rel="noopener" title="구글맵에서 열기">미스 소피스 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">08:00</span><span class="slot-x"><span class="slot-txt">체스키 크룸로프 출발 (08:00)</span></span></li>
+<li class="slot"><span class="slot-t">09:00</span><span class="slot-x"><span class="slot-txt">이동 중 — 프라하 → 체스키 크룸로프 (약 3시간, 11시 전후 도착)</span></span></li>
+<li class="slot"><span class="slot-t">10:00</span><span class="slot-x"><span class="slot-txt">이동 중 · 도착 준비</span></span></li>
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">체스키 도착 — 짐부터 맡기고 CK 승차 지점 위치 확인</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Lazebnick%C3%BD%20most%2C%20%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener" title="구글맵에서 열기">이발사의 다리</a></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">투어 종료 후 점심 및 자유시간</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Lazebnick%C3%BD%20most%2C%20%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener" title="구글맵에서 열기">이발사의 다리</a></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">구시가지 핵심만 — 이발사의 다리 · 성 아래 강변 (13시 FlixBus 일정 없음)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Lazebnick%C3%BD%20most%2C%20%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener" title="구글맵에서 열기">이발사의 다리</a></span></li>
+<li class="slot"><span class="slot-t">14:00</span><span class="slot-x"><span class="slot-txt">(선택) 세미나리 정원 성 전경 — 힘들면 카페에서 계속 쉬기</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Semin%C3%A1rn%C3%AD%20zahrada%2C%20%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener" title="구글맵에서 열기">세미나리 정원</a></span></li>
+<li class="slot"><span class="slot-t">15:00</span><span class="slot-x"><span class="slot-txt">투어 종료 → 짐 보관 장소 또는 선택한 CK 승차 지점 근처 카페로 이동</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Lazebnick%C3%BD%20most%2C%20%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener" title="구글맵에서 열기">이발사의 다리</a></span></li>
+<li class="slot"><span class="slot-t">16:00</span><span class="slot-x"><span class="slot-txt">카페에서 휴식 → 짐 찾기·화장실 · 16:45까지 지정 승차 지점 도착</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Lazebnick%C3%BD%20most%2C%20%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener" title="구글맵에서 열기">이발사의 다리</a></span></li>
+<li class="slot"><span class="slot-t">17:00</span><span class="slot-x"><span class="slot-txt">ck 버스타고 잘츠부르크 이동</span></span></li>
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">이동 중 (체스키 → 잘츠부르크 약 3~3.5시간)</span></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">이동 중 (휴게소 정차)</span></span></li>
+<li class="slot"><span class="slot-t">20:00</span><span class="slot-x"><span class="slot-txt">20:20 도착 및 호텔 도보 이동</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">21:00</span><span class="slot-x"><span class="slot-txt">a&amp;o 체크인 · 역 근처에서 가볍게 저녁 (정시 도착 전제로 예약하지 말기)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">22:00</span><span class="slot-x"><span class="slot-txt">휴식 — 내일 오전 운전이 있으니 일찍</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">10/2</span><span class="day-w">금</span><span class="day-t">할슈타트 당일치기</span></h3>
+<p class="day-sub"><span class="day-n">렌트카 08:00~20:00 · 수령에 30~45분 여유</span> <a class="day-map" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=47.815187,13.044063&destination=47.815187,13.044063&waypoints=47.555062,13.645188%7C47.562812,13.649437%7C47.815187,13.044063%7C47.799937,13.043563%7C47.797937,13.046688" target="_blank" rel="noopener">이 날 동선을 구글맵에서 열기 (도보) →</a></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">07:00</span><span class="slot-x"><span class="slot-txt">호텔 조식 (2박, 체크아웃 없음)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">08:00</span><span class="slot-x"><span class="slot-txt">렌트카 수령 · 차량 상태 확인 (30~45분 잡아두기)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">09:00</span><span class="slot-x"><span class="slot-txt">할슈타트로 출발</span></span></li>
+<li class="slot"><span class="slot-t">10:00</span><span class="slot-x"><span class="slot-txt">이동 중 (약 1시간 20분)</span></span></li>
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">할슈타트 도착 · 주차 — 중심부까지 P2 약 15분, P1 약 20분. P3·P4는 약 40분에 셔틀도 없으니 그때는 산책 범위를 줄이세요 (주차장 예약 불가)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Parkplatz%20P2%2C%20Kohlstattweg%2C%20Hallstatt" target="_blank" rel="noopener" title="구글맵에서 열기">주차장 P2</a></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">호숫가 산책 · 마을 골목 · 포토 포인트</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Evangelische%20Pfarrkirche%20Hallstatt%2C%20Landungspl.%20101%2C%20Hallstatt" target="_blank" rel="noopener" title="구글맵에서 열기">할슈타트 마을 · 호수</a></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">점심 — 호숫가 식당 (예약 권장)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Evangelische%20Pfarrkirche%20Hallstatt%2C%20Landungspl.%20101%2C%20Hallstatt" target="_blank" rel="noopener" title="구글맵에서 열기">할슈타트 마을 · 호수</a></span></li>
+<li class="slot"><span class="slot-t">14:00</span><span class="slot-x"><span class="slot-txt">커피·디저트 · 호숫가 벤치에서 쉬기</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Evangelische%20Pfarrkirche%20Hallstatt%2C%20Landungspl.%20101%2C%20Hallstatt" target="_blank" rel="noopener" title="구글맵에서 열기">할슈타트 마을 · 호수</a></span></li>
+<li class="slot"><span class="slot-t">15:00</span><span class="slot-x"><span class="slot-txt">잘츠부르크로 출발</span></span></li>
+<li class="slot"><span class="slot-t">16:00</span><span class="slot-x"><span class="slot-txt">잘츠부르크 도착 · 렌트카 반납</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">17:00</span><span class="slot-x"><span class="slot-txt">호텔에서 휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">(선택) 게트라이데 거리 · SPAR — 피곤하면 생략</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=SPAR%2C%20Getreidegasse%209%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">SPAR · 게트라이데 거리</a></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">저녁 — 구시가지 또는 역 근처</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Salzburg%20Cathedral%2C%20Domplatz%201a%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">잘츠부르크 대성당</a></span></li>
+<li class="slot"><span class="slot-t">20:00</span><span class="slot-x"><span class="slot-txt">호텔 복귀 · 짐 정리</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">10/3</span><span class="day-w">토</span><span class="day-t">잘츠부르크 → 비엔나</span></h3>
+<p class="day-sub"><span class="day-n">기차 14:07 · 숙소 최근접역은 U2 Stadion</span> <a class="day-map" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=47.815187,13.044063&destination=48.214063,16.421562&waypoints=47.804562,13.042312%7C47.797937,13.046688%7C47.815187,13.044063%7C48.185187,16.376562%7C48.214063,16.421562%7C48.214063,16.401687%7C48.215438,16.400187" target="_blank" rel="noopener">이 날 동선을 구글맵에서 열기 (도보) →</a></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">07:00</span><span class="slot-x"><span class="slot-txt">호텔 조식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">08:00</span><span class="slot-x"><span class="slot-txt">체크아웃 및 둘러보기</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">09:00</span><span class="slot-x"><span class="slot-txt">미라벨 정원 — 호텔에서 도보 약 16분, 계획은 20~25분으로 여유 있게</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Mirabellgarten%2C%20Mirabellplatz%203%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">미라벨 정원</a></span></li>
+<li class="slot"><span class="slot-t">10:00</span><span class="slot-x"><span class="slot-txt">잘차흐 강변 따라 구시가지로 산책</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Salzburg%20Cathedral%2C%20Domplatz%201a%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">잘츠부르크 대성당</a></span></li>
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">잘츠부르크 대성당 · 레지던스 광장</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Salzburg%20Cathedral%2C%20Domplatz%201a%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">잘츠부르크 대성당</a></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">점심 — 구시가지</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Salzburg%20Cathedral%2C%20Domplatz%201a%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">잘츠부르크 대성당</a></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">구시가지 → 호텔로 돌아와 짐 찾기 → 13:30~13:40까지 중앙역 도착 목표</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">14:00</span><span class="slot-x"><span class="slot-txt">중앙역에서 비엔나로 기차 (14:07)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=a%26o%20Salzburg%20Hauptbahnhof%2C%20Fanny-von-Lehnert-Stra%C3%9Fe%204%2C%20Salzburg" target="_blank" rel="noopener" title="구글맵에서 열기">a&amp;o 잘츠부르크 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">15:00</span><span class="slot-x"><span class="slot-txt">기차 이동 중 (약 2시간 20분)</span></span></li>
+<li class="slot"><span class="slot-t">16:00</span><span class="slot-x"><span class="slot-txt">빈 중앙역 도착 → U1 → U2 Stadion, 역에서 호텔 도보 5분</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Wien%20Hauptbahnhof%2C%20Am%20Hbf%201%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">빈 중앙역</a></span></li>
+<li class="slot"><span class="slot-t">17:00</span><span class="slot-x"><span class="slot-txt">체크인</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">짐 풀고 휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">저녁 — 슈바이처하우스 (프라터, 슈텔제) · 숙소에서 U2 두 정거장</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Schweizerhaus%2C%20Prater%20116%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">슈바이처하우스 (슈텔제)</a></span></li>
+<li class="slot"><span class="slot-t">20:00</span><span class="slot-x"><span class="slot-txt">(선택) 프라터 대관람차 — 피곤하면 생략</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Prater%2C%201020%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">프라터 공원</a></span></li>
+<li class="slot"><span class="slot-t">21:00</span><span class="slot-x"><span class="slot-txt">호텔 복귀</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">10/4</span><span class="day-w">일</span><span class="day-t">비엔나 ① 쇤브룬</span></h3>
+<p class="day-sub"><span class="day-n">일요일 — 오후는 숙소에서 쉬는 날</span> <a class="day-map" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=48.214063,16.421562&destination=48.214063,16.421562&waypoints=48.185812,16.312812%7C48.214063,16.421562%7C48.208438,16.373438%7C48.209313,16.375562%7C48.204062,16.369687" target="_blank" rel="noopener">이 날 동선을 구글맵에서 열기 (도보) →</a></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">08:00</span><span class="slot-x"><span class="slot-txt">호텔 조식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">09:00</span><span class="slot-x"><span class="slot-txt">U2 Stadion → 카를스플라츠 → U4 쇤브룬 (약 35분)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn%20Palace%2C%20Sch%C3%B6nbrunner%20Schlo%C3%9Fstra%C3%9Fe%2047%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">쇤브룬 궁전</a></span></li>
+<li class="slot"><span class="slot-t">10:00</span><span class="slot-x"><span class="slot-txt">쇤브룬 궁전 내부 — Palace Ticket 약 75분 (10:00~11:15) · 시간 지정 예약</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn%20Palace%2C%20Sch%C3%B6nbrunner%20Schlo%C3%9Fstra%C3%9Fe%2047%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">쇤브룬 궁전</a></span></li>
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">쇤브룬 정원 산책 (11:15부터 · 평지 위주, 글로리에테 오르막은 생략 가능)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn%20Palace%2C%20Sch%C3%B6nbrunner%20Schlo%C3%9Fstra%C3%9Fe%2047%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">쇤브룬 궁전</a></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">점심 — 쇤브룬 근처</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn%20Palace%2C%20Sch%C3%B6nbrunner%20Schlo%C3%9Fstra%C3%9Fe%2047%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">쇤브룬 궁전</a></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">호텔 복귀</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">14:00</span><span class="slot-x"><span class="slot-txt">숙소 휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">15:00</span><span class="slot-x"><span class="slot-txt">휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">16:00</span><span class="slot-x"><span class="slot-txt">휴식 (또는 도나우 강변 산책)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">17:00</span><span class="slot-x"><span class="slot-txt">시내로 이동 (U2 → U1)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=St.%20Stephen%27s%20Cathedral%2C%20Stephansplatz%203%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">슈테판 대성당 · 광장</a></span></li>
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">저녁 — 피글뮐러 (슈니첼) · 예약 권장, 서두르지 말고 천천히</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Figlm%C3%BCller%20B%C3%A4ckerstra%C3%9Fe%206%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">피글뮐러 (슈니첼)</a></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">(선택) 디저트 — 자허토르테 Café Sacher · 19:30 이후로 여유 있게, 사전 예약 권장</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Sacher%2C%20Philharmoniker%20Str.%204%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">카페 자허</a></span></li>
+<li class="slot"><span class="slot-t">20:00</span><span class="slot-x"><span class="slot-txt">호텔 복귀</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">10/5</span><span class="day-w">월</span><span class="day-t">비엔나 ② 구시가지</span></h3>
+<p class="day-sub"><span class="day-n">전부 1구역 도보권 — 이동이 거의 없는 날</span> <a class="day-map" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=48.214063,16.421562&destination=48.214063,16.421562&waypoints=48.208438,16.373438%7C48.205688,16.364812%7C48.206313,16.370938%7C48.208562,16.367188%7C48.209437,16.369937%7C48.208562,16.367188%7C48.207937,16.377562%7C48.203312,16.373062" target="_blank" rel="noopener">이 날 동선을 구글맵에서 열기 (도보) →</a></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">08:00</span><span class="slot-x"><span class="slot-txt">호텔 조식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">09:00</span><span class="slot-x"><span class="slot-txt">U2 Stadion → 프라터슈테른 → U1 슈테판플라츠 (약 25분)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=St.%20Stephen%27s%20Cathedral%2C%20Stephansplatz%203%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">슈테판 대성당 · 광장</a></span></li>
+<li class="slot"><span class="slot-t">10:00</span><span class="slot-x"><span class="slot-txt">슈테판 대성당 내부 — 평일 관람시간 9:00~11:30</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=St.%20Stephen%27s%20Cathedral%2C%20Stephansplatz%203%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">슈테판 대성당 · 광장</a></span></li>
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">호프부르크 — 시시 박물관 + 황제의 아파트</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hofburg%2C%201010%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">호프부르크 · 시시 박물관</a></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">호프부르크 계속 — 서두르지 말고 천천히</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hofburg%2C%201010%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">호프부르크 · 시시 박물관</a></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">점심 — 플라후타 (타펠슈피츠 소고기 국)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Plachuttas%20Neuer%20Markt%2C%20Neuer%20Markt%202%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">플라후타 (타펠슈피츠)</a></span></li>
+<li class="slot"><span class="slot-t">14:00</span><span class="slot-x"><span class="slot-txt">콜마르크트 · 그라벤 분수 · 미카엘 광장 산책 (전부 도보 3분 거리)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Demel%2C%20Kohlmarkt%2014%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">데멜 · 콜마르크트</a></span></li>
+<li class="slot"><span class="slot-t">15:00</span><span class="slot-x"><span class="slot-txt">성 페터 성당 — 오후 3시 파이프오르간 연주 (고정 시간이니 여기부터 맞추기)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=St.%20Peter%27s%20Church%2C%20Petersplatz%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">성 페터 성당</a></span></li>
+<li class="slot"><span class="slot-t">16:00</span><span class="slot-x"><span class="slot-txt">카페에서 길게 휴식 — 데멜 (예약을 받지 않으니 대기 길면 아이다 볼차일레로)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Demel%2C%20Kohlmarkt%2014%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">데멜 · 콜마르크트</a></span></li>
+<li class="slot"><span class="slot-t">17:00</span><span class="slot-x"><span class="slot-txt">휴식 계속 · (선택) 케른트너 거리 천천히</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=AIDA%20Caf%C3%A9-Konditorei%2C%20Wollzeile%2028%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">아이다 볼차일레</a></span></li>
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">저녁 — 1516 브루잉 (굴라쉬 + 1516 맥주)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=1516%20Brewing%20Company%2C%20Schwarzenbergstra%C3%9Fe%202%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">1516 브루잉</a></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">호텔 복귀 · 휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">10/6</span><span class="day-w">화</span><span class="day-t">비엔나 ③ 벨베데레 · 나슈마르크트</span></h3>
+<p class="day-sub"><span class="day-n">기본은 두 곳까지 · 나머지는 선택</span> <a class="day-map" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=48.214063,16.421562&destination=48.214063,16.421562&waypoints=48.191437,16.380938%7C48.199437,16.365313%7C48.198562,16.371688%7C48.214063,16.421562%7C48.207313,16.394313%7C48.205813,16.375062%7C48.211312,16.377813" target="_blank" rel="noopener">이 날 동선을 구글맵에서 열기 (도보) →</a></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">08:00</span><span class="slot-x"><span class="slot-txt">호텔 조식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">09:00</span><span class="slot-x"><span class="slot-txt">호텔 → Stadion역 앞 18번 트램 정류장 → Quartier Belvedere → 상궁까지 도보 (지하철 없이 트램 한 번)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Belvedere%20Palace%2C%201030%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">벨베데레 궁전</a></span></li>
+<li class="slot"><span class="slot-t">10:00</span><span class="slot-x"><span class="slot-txt">벨베데레 상궁 — 클림트 「키스」</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Belvedere%20Palace%2C%201030%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">벨베데레 궁전</a></span></li>
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">벨베데레 정원 산책</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Belvedere%20Palace%2C%201030%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">벨베데레 궁전</a></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">점심 — 벨베데레 근처에서 앉아서 (케제크라이너는 간식으로 따로)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Belvedere%20Palace%2C%201030%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">벨베데레 궁전</a></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">나슈마르크트 — 재래시장 (화요일 영업)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Naschmarkt%2C%201060%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">나슈마르크트</a></span></li>
+<li class="slot"><span class="slot-t">14:00</span><span class="slot-x"><span class="slot-txt">(선택) 카를 성당 — 도보 8분 · 돔 엘리베이터는 2022년 철거, 지금은 전망 테라스·모형·보물실</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Karlskirche%2C%20Karlsplatz%2010%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">카를 성당</a></span></li>
+<li class="slot"><span class="slot-t">15:00</span><span class="slot-x"><span class="slot-txt">호텔 복귀 · 휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">16:00</span><span class="slot-x"><span class="slot-txt">휴식</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">17:00</span><span class="slot-x"><span class="slot-txt">(선택) 훈데르트바서 하우스 또는 그냥 쉬기</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hundertwasser%20House%2C%20Kegelgasse%2036-38%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">훈데르트바서 하우스</a></span></li>
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">저녁 — 립스 오브 비엔나 (예약 권장)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Ribs%20of%20Vienna%2C%20Weihburggasse%2022%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">립스 오브 비엔나</a></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">(선택) 디저트 — 카이저스 (카이저슈마른)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Kaiser%27s%20Kaiserschmarrn%2C%20Franz-Josefs-Kai%2013%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">카이저스 (카이저슈마른)</a></span></li>
+<li class="slot"><span class="slot-t">20:00</span><span class="slot-x"><span class="slot-txt">호텔 복귀</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">10/7</span><span class="day-w">수</span><span class="day-t">비엔나 → 귀국</span></h3>
+<p class="day-sub"><span class="day-n">오전 실내 관광 한 곳만 · 15시 공항</span> <a class="day-map" href="https://www.google.com/maps/dir/?api=1&travelmode=walking&origin=48.214063,16.421562&destination=48.214063,16.421562&waypoints=48.206313,16.366937%7C48.211438,16.371437" target="_blank" rel="noopener">이 날 동선을 구글맵에서 열기 (도보) →</a></p>
+<ol class="slots">
+<li class="slot"><span class="slot-t">08:00</span><span class="slot-x"><span class="slot-txt">호텔 조식 · 체크아웃 준비</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">09:00</span><span class="slot-x"><span class="slot-txt">체크아웃 · 호텔에 짐 맡기기</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">10:00</span><span class="slot-x"><span class="slot-txt">국립도서관 프룽크잘 (화~일 9~18시 · 관람 약 45분)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=State%20Hall%20of%20the%20Austrian%20National%20Library%2C%20Josefsplatz%201%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">국립도서관 프룽크잘</a></span></li>
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">근처 천천히 — 무리해서 다른 곳을 더 넣지 않기</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=State%20Hall%20of%20the%20Austrian%20National%20Library%2C%20Josefsplatz%201%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">국립도서관 프룽크잘</a></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">점심 — 시내에서 앉아서</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Radatz%20Fleischerei%20Wipplingerstra%C3%9Fe%203%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">라다츠 (정육점)</a></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">호텔 복귀 · 짐 찾기</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">14:00</span><span class="slot-x"><span class="slot-txt">택시 탑승 (공항까지 약 30분)</span><a class="slot-map" href="https://www.google.com/maps/search/?api=1&query=Hilton%20Vienna%20Waterfront%2C%20Handelskai%20269%2C%20Wien" target="_blank" rel="noopener" title="구글맵에서 열기">힐튼 워터프론트 (숙소)</a></span></li>
+<li class="slot"><span class="slot-t">15:00</span><span class="slot-x"><span class="slot-txt">택시로 비엔나 공항 도착</span></span></li>
+<li class="slot"><span class="slot-t">16:00</span><span class="slot-x"><span class="slot-txt">공항 체크인 · 세금 환급 · 면세</span></span></li>
+<li class="slot"><span class="slot-t">17:00</span><span class="slot-x"><span class="slot-txt">탑승 게이트 이동</span></span></li>
+<li class="slot"><span class="slot-t">18:00</span><span class="slot-x"><span class="slot-txt">빈 출발 → 인천행</span></span></li>
+<li class="slot"><span class="slot-t">19:00</span><span class="slot-x"><span class="slot-txt">비행 중</span></span></li>
+</ol></article>
+<article class="day">
+<h3 class="day-h"><span class="day-d">10/8</span><span class="day-w">목</span><span class="day-t">인천 도착</span></h3>
+<ol class="slots">
+<li class="slot"><span class="slot-t">11:00</span><span class="slot-x"><span class="slot-txt">착륙 준비</span></span></li>
+<li class="slot"><span class="slot-t">12:00</span><span class="slot-x"><span class="slot-txt">인천공항 도착</span></span></li>
+<li class="slot"><span class="slot-t">13:00</span><span class="slot-x"><span class="slot-txt">입국 수속 · 수하물 · 귀가</span></span></li>
+</ol></article>
+</section>
+
+<section class="notes" id="notes">
+<h2>예약 · 확인 사항</h2>
+<p class="lead">출발 전에 짚어야 할 것들입니다. 엑셀 파일 28행 아래에도 같은 내용이 들어 있습니다.</p>
+<div class="ngroup n-book">
+<h3>예약 권장<span class="ncount">9</span></h3>
+<ul>
+<li>조지프라임 스테이크하우스 — T본 스테이크 · 9/29 저녁 (예약 필수에 가까움)</li>
+<li>쇤브룬 궁전 Palace Ticket — 약 75분(피아노 노빌레 전체), 입장 시간 지정 · 10/4 오전. 짧게 보시려면 State Apartments 약 40분 상품도 있습니다.</li>
+<li>피글뮐러 Bäckerstraße — 지점별 예약 · 10/4 저녁</li>
+<li>카페 자허 — 사전 예약 안내 있음 · 10/4 저녁</li>
+<li>플라후타 Neuer Markt — 10/5 점심</li>
+<li>벨베데레 상궁 — 10/6 오전</li>
+<li>립스 오브 비엔나 — 10/6 저녁</li>
+<li>할슈타트 호숫가 식당 — 10/2 점심</li>
+<li>데멜은 예약을 받지 않습니다. 대기가 길면 아이다 볼차일레로 (10/5 오후)</li>
+</ul></div>
+<div class="ngroup n-check">
+<h3>확인 필요 — 제가 확인할 수 없는 것<span class="ncount">4</span></h3>
+<ul>
+<li>체스키 CK 승차 지점 · 선택할 수 있으니 관광 종료 지점과 짐 보관 장소 기준으로 캐리어를 가장 적게 끄는 곳으로. 정한 뒤 업체에 알려 바우처 주소에 반영됐는지 확인하고, 변경은 출발 24시간 전까지입니다.</li>
+<li>체스키 짐 보관 · 승차 지점 선택과는 별개입니다. CK의 무료 보관 안내는 자사 셔틀 환승·관광 경유 고객 기준이라, 오후 편만 예약한 경우에도 오전부터 맡을 수 있는지 따로 물어보세요.</li>
+<li>a&amp;o 잘츠부르크 객실 · 개인실과 도미토리를 함께 운영합니다. 예약하신 방이 개인실·전용 욕실·아래층 침대인지 확인하세요.</li>
+<li>귀국 항공편 출발시각 · 위탁수하물이 있으면 빈 공항은 출발 3시간 전 도착을 권합니다. 15시 공항 도착 계획은 18시대 출발 기준입니다.</li>
+</ul></div>
+<div class="ngroup n-fix">
+<h3>운영시간·요일 때문에 바꾼 것<span class="ncount">6</span></h3>
+<ul>
+<li>9/28은 체코 국경일 — 200㎡ 넘는 매장은 법으로 휴업합니다. 테스코 장보기는 9/30으로 옮겼고, 첫날 물·간식은 공항·역 매장(예외)에서 사세요.</li>
+<li>국립도서관 프룽크잘 — 10~5월 월요일 휴관이라 10/5에서 10/7 오전으로 옮겼습니다. 같은 날 자연사 박물관(최소 2시간)까지 넣지 말고 하나만 보세요.</li>
+<li>슈테판 대성당 — 관광 관람은 월~토 9:00~11:30 / 13:00~16:30, 일요일·공휴일은 13:00~16:30뿐입니다. 그래서 10/5 오전으로 옮겼습니다.</li>
+<li>나슈마르크트 — 일요일 휴무라 10/6(화)에 넣었습니다. 10/4(일)은 빈 상점도 대부분 닫습니다.</li>
+<li>카를 성당 — 돔 파노라마 엘리베이터는 2022년 11월 철거됐습니다. 지금은 전망 테라스·1:28 모형·보물실 관람입니다.</li>
+<li>성 페터 성당 오르간 — 매일 오후 3시 고정이라 10/5는 이 시간부터 맞추고 카페를 뒤로 뒀습니다.</li>
+</ul></div>
+<div class="ngroup n-move">
+<h3>이동 메모<span class="ncount">5</span></h3>
+<ul>
+<li>빈 숙소 최근접역은 U2 Stadion (도보 약 5분, 390m). U1·U6가 아닙니다. U2는 2024년 말부터 카를스플라츠까지 전 구간 운행합니다.</li>
+<li>10/6 벨베데레 — 2026-09-05부터 18번 트램이 Stadion까지 연장됐습니다. 지하철은 탈 필요 없이, 숙소에서 Stadion역 앞 트램 정류장으로 걸어가 18번을 타고 Quartier Belvedere에서 내려 상궁까지 걸으면 됩니다. 예전 경로로 간다면 U2 → 카를스플라츠 → D번 트램 Schloss Belvedere입니다.</li>
+<li>할슈타트 주차 — 중심부까지 P2 약 15분, P1 약 20분, P3·P4 약 40분(셔틀 없음). 예약이 안 되니 먼 곳에 대면 산책 범위를 줄이세요.</li>
+<li>10/1 — CK 셔틀 17:00 한 편입니다. 13시 FlixBus 줄은 지웠고, 16:45까지 지정 승차 지점 도착이 목표입니다. 잘츠부르크 정시 도착을 전제로 저녁을 예약하지 마세요.</li>
+<li>10/3 — 미라벨 정원은 숙소에서 도보 약 16분, 계획은 20~25분. 기차는 13:30~13:40까지 중앙역 도착을 목표로 하세요.</li>
+</ul></div>
+<div class="ngroup n-run">
+<h3>일정 운용<span class="ncount">4</span></h3>
+<ul>
+<li>&#x27;(선택)&#x27;이 붙은 줄은 빼도 되는 일정입니다. 힘들면 여기부터 덜어내세요.</li>
+<li>9/30 저녁은 비워뒀습니다. 하루 한 끼는 현장에서 정하시라고 남긴 자리입니다.</li>
+<li>10/4·10/6 오후의 숙소 휴식은 다른 관광지로 채우지 마세요. 이번 일정에서 가장 중요한 부분입니다.</li>
+<li>아직 안 넣은 곳 — 프라하 조니피자·나셰마소·콜라체 / 빈 자연사 박물관·모차르트 하우스·훈데르트바서(선택)·비트징어·케제크라이너 스탠드. 서서 먹는 곳은 식사는 되어도 휴식은 안 됩니다.</li>
+</ul></div>
+</section>
+
+<section class="city" id="prague">
+<div class="city-head">
+<h2>프라하</h2>
+<span class="stay">3박</span>
+</div>
+<h3 class="grp"><span>음식</span><span class="grp-n">7곳</span></h3>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Johnny%20Pizza%20Bistro%20%28Takeaway%29%2C%20Koubkova%20685/16%2C%20Vinohrady" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">조니피자 — 테이크아웃점</span>
+<span class="en">Johnny Pizza Bistro (Takeaway)</span>
+<span class="addr">Koubkova 685/16, Vinohrady</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">3,146</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Pork%27s%20Mostecka%2C%20Mosteck%C3%A1%2016%2C%20Mal%C3%A1%20Strana" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">꼴레뇨 — 말라스트라나점<span class="tag tag-both">둘 다</span></span>
+<span class="en">Pork&#x27;s Mostecka</span>
+<span class="addr">Mostecká 16, Malá Strana</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">11,441</span></span>
+</a>
+<p class="note">카를교 바로 앞. 리뷰 키워드 1위가 pork knuckle(꼴레뇨)</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Johnny%20Pizza%20Bar%2C%20V%20Jirch%C3%A1%C5%99%C3%ADch%202%2C%20Praha%201" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">조니피자 — 매장</span>
+<span class="en">Johnny Pizza Bar</span>
+<span class="addr">V Jirchářích 2, Praha 1</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">3,028</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Pork%27s%20Vodi%C4%8Dkova%2C%20Vodi%C4%8Dkova%2017%2C%20Nov%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">꼴레뇨 — 신시가지점</span>
+<span class="en">Pork&#x27;s Vodičkova</span>
+<span class="addr">Vodičkova 17, Nové Město</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">1,868</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=George%20Prime%20Steak%2C%20Platn%C3%A9%C5%99sk%C3%A1%20111/19%2C%20Star%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">T본 스테이크</span>
+<span class="en">George Prime Steak</span>
+<span class="addr">Platnéřská 111/19, Staré Město</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">1,571</span></span>
+</a>
+<p class="note">엠블럼 프라하 호텔 안 · 예약 권장</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Kant%C3%BDna%2C%20Politick%C3%BDch%20v%C4%9Bz%C5%88%C5%AF%201511/5%2C%20Nov%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">칸티나 (정육식당)<span class="tag tag-both">둘 다</span></span>
+<span class="en">Kantýna</span>
+<span class="addr">Politických vězňů 1511/5, Nové Město</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">13,930</span></span>
+</a>
+<p class="note">고기 버전 서브웨이 · 입구에서 카드 받아 정육 카운터에서 골라 담고 나갈 때 계산. 육회 타르타르 리뷰 864건</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Na%C5%A1e%20maso%2C%20Dlouh%C3%A1%20727/39%2C%20Star%C3%A9%20M%C4%9Bsto%20%28Gurmet%20Pas%C3%A1%C5%BE%20Dlouh%C3%A1%29" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">정육점 햄버거 · 소시지<span class="tag tag-me">내 리스트</span></span>
+<span class="en">Naše maso</span>
+<span class="addr">Dlouhá 727/39, Staré Město (Gurmet Pasáž Dlouhá)</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">6,816</span></span>
+</a>
+<p class="note">로칼 본점(Dlouhá 33) 바로 옆 골목 · 서서 먹는 카운터</p>
+</li>
+</ol>
+<h3 class="grp"><span>관광 · 장소</span><span class="grp-n">8곳</span></h3>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Charles%20Bridge%2C%20Karl%C5%AFv%20most%2C%20Praha%201" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">카를교</span>
+<span class="en">Charles Bridge · Karlův most</span>
+<span class="addr">Karlův most, Praha 1</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">199,407</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=St.%20Vitus%20Cathedral%2C%20Pra%C5%BEsk%C3%BD%20hrad%2C%20Hrad%C4%8Dany" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">성 비투스 대성당</span>
+<span class="en">St. Vitus Cathedral · Katedrála sv. Víta</span>
+<span class="addr">Pražský hrad, Hradčany</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">96,029</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Starom%C4%9Bstsk%C3%A1%20radnice%2C%20Starom%C4%9Bstsk%C3%A9%20n%C3%A1m.%201/3" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">구시청사</span>
+<span class="en">Staroměstská radnice</span>
+<span class="addr">Staroměstské nám. 1/3</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">4,372</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Prague%20Astronomical%20Clock%2C%20Starom%C4%9Bstsk%C3%A9%20n%C3%A1m.%201" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">천문시계</span>
+<span class="en">Prague Astronomical Clock · Pražský orloj</span>
+<span class="addr">Staroměstské nám. 1</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">102,301</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Prague%20old%20car%20Ltd.%2C%20Celetn%C3%A1%201078%2C%20Star%C3%A9%20M%C4%9Bsto%20%28%EC%8B%9C%EB%AF%BC%ED%9A%8C%EA%B4%80%29" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">클래식 카 투어</span>
+<span class="en">Prague old car Ltd.</span>
+<span class="addr">Celetná 1078, Staré Město (시민회관)</span>
+</span>
+<span class="score t-b"><span class="num">4.5</span><span class="rev">220</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Havel%27s%20Market%2C%20Havelsk%C3%A1%2013%2C%20Star%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">하벨 시장 (과일가게)</span>
+<span class="en">Havel&#x27;s Market · Havelské tržiště</span>
+<span class="addr">Havelská 13, Staré Město</span>
+</span>
+<span class="score t-b"><span class="num">4.2</span><span class="rev">31,834</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Tesco%2C%20N%C3%A1rodn%C3%AD%2063/26%2C%20Nov%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">테스코</span>
+<span class="en">Tesco</span>
+<span class="addr">Národní 63/26, Nové Město</span>
+</span>
+<span class="score t-b"><span class="num">4.1</span><span class="rev">11,090</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Albert%2C%20N%C3%A1m%C4%9Bst%C3%AD%20Republiky%201078/1" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">알버트</span>
+<span class="en">Albert</span>
+<span class="addr">Náměstí Republiky 1078/1</span>
+</span>
+<span class="score t-b"><span class="num">4.1</span><span class="rev">4,422</span></span>
+</a>
+<p class="note">하이퍼마켓 지점은 시내 밖 — 시내에서는 이 수퍼마켓 지점이 가장 가깝습니다</p>
+</li>
+</ol>
+</section>
+<section class="city" id="krumlov">
+<div class="city-head">
+<h2>체스키크룸로프</h2>
+</div>
+<h3 class="grp"><span>관광 · 장소</span><span class="grp-n">2곳</span></h3>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Semin%C3%A1rn%C3%AD%20zahrada%2C%20381%2001%20%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">세미나리 정원</span>
+<span class="en">Seminární zahrada</span>
+<span class="addr">381 01 Český Krumlov</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">302</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Lazebnick%C3%BD%20most%2C%20381%2001%20%C4%8Cesk%C3%BD%20Krumlov" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">이발사의 다리</span>
+<span class="en">Lazebnický most</span>
+<span class="addr">381 01 Český Krumlov</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">1,448</span></span>
+</a>
+</li>
+</ol>
+</section>
+<section class="city" id="alps">
+<div class="city-head">
+<h2>잘츠부르크 · 할슈타트</h2>
+<span class="stay">1박 + 당일치기</span>
+</div>
+<h3 class="grp"><span>장소 · 주차</span><span class="grp-n">4곳</span></h3>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Hallst%C3%A4tter%20See%2C%204830%20Hallstatt" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">할슈타트 호수</span>
+<span class="en">Hallstätter See</span>
+<span class="addr">4830 Hallstatt</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">2,311</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Parking%20P1%20hallstatt%2C%20Salinenpl.%204%2C%204830%20Hallstatt" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">주차장 P1</span>
+<span class="en">Parking P1 hallstatt · Parkplatz P1</span>
+<span class="addr">Salinenpl. 4, 4830 Hallstatt</span>
+</span>
+<span class="score t-b"><span class="num">4.2</span><span class="rev">2,463</span></span>
+</a>
+<p class="note">마을에서 가장 가까운 주차장 · 24시간</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Hallstatt%20Parking%20P2%2C%20Kohlstattweg%2C%204830%20Hallstatt" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">주차장 P2</span>
+<span class="en">Hallstatt Parking P2 · Parkplatz P2</span>
+<span class="addr">Kohlstattweg, 4830 Hallstatt</span>
+</span>
+<span class="score t-b"><span class="num">4.2</span><span class="rev">1,683</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=SPAR%2C%20Getreidegasse%209%2C%205020%20Salzburg" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">슈파 마트 (잘츠부르크)</span>
+<span class="en">SPAR</span>
+<span class="addr">Getreidegasse 9, 5020 Salzburg</span>
+</span>
+<span class="score t-b"><span class="num">4.2</span><span class="rev">470</span></span>
+</a>
+<p class="note">모차르트 생가 건물 1층 — 게트라이데 거리 구경하면서 장보기</p>
+</li>
+</ol>
+</section>
+<section class="city" id="wien">
+<div class="city-head">
+<h2>비엔나</h2>
+<span class="stay">4박</span>
+</div>
+<h3 class="grp"><span>음식</span><span class="grp-n">11곳</span></h3>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=W%C3%BCrstelstand%20am%20S%C3%BCdtiroler%20Platz%2C%20Wiedner%20G%C3%BCrtel%203%2C%201040%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">케제크라이너 · 소시지 스탠드<span class="tag tag-me">내 리스트</span></span>
+<span class="en">Würstelstand am Südtiroler Platz</span>
+<span class="addr">Wiedner Gürtel 3, 1040 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">1,423</span></span>
+</a>
+<p class="note">벨베데레에서 걸어서 20분 · 리뷰 키워드 1위가 käsekrainer(139건) · 새벽 4시까지</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Radatz%20Fleischerei%20Wipplinger%20Stra%C3%9Fe%2C%20Wipplingerstra%C3%9Fe%203%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">라다츠 — 정육점 점심<span class="tag tag-me">내 리스트</span></span>
+<span class="en">Radatz Fleischerei Wipplinger Straße</span>
+<span class="addr">Wipplingerstraße 3, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">96</span></span>
+</a>
+<p class="sub">다른 시내 지점 — Schottengasse 3 4.4 (188) · Rochusmarkt 4.2 (134) · Neubaugasse 7 4.2 (100)</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=1516%20Brewing%20Company%2C%20Schwarzenbergstra%C3%9Fe%202%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">1516 맥주 · 굴라쉬</span>
+<span class="en">1516 Brewing Company</span>
+<span class="addr">Schwarzenbergstraße 2, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.5</span><span class="rev">14,212</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Bakery%20Cafe%20Felzl%2C%20Helferstorferstra%C3%9Fe%202%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">동네빵집</span>
+<span class="en">Bakery Cafe Felzl</span>
+<span class="addr">Helferstorferstraße 2, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.5</span><span class="rev">697</span></span>
+</a>
+<p class="sub">다른 지점 — Pilgramgasse 24 4.5 (289) · Lerchenfelder Str. 99/101 4.4 (788) · Kaiserstraße 51-53 4.3 (752)</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Ribs%20of%20Vienna%2C%20Weihburggasse%2022%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">립스 오브 비엔나</span>
+<span class="en">Ribs of Vienna</span>
+<span class="addr">Weihburggasse 22, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.4</span><span class="rev">9,389</span></span>
+</a>
+<p class="note">지하 아치형 홀 · 예약 가능</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Vienna%20Central%2C%20Am%20Hbf%201%2C%201100%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">기차역 푸드존</span>
+<span class="en">Vienna Central · Wien Hbf</span>
+<span class="addr">Am Hbf 1, 1100 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.4</span><span class="rev">7,538</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Plachuttas%20Neuer%20Markt%2C%20Neuer%20Markt%202%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">플라후타 — 타펠슈피츠(소고기 국)<span class="tag tag-me">내 리스트</span></span>
+<span class="en">Plachuttas Neuer Markt</span>
+<span class="addr">Neuer Markt 2, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.4</span><span class="rev">1,126</span></span>
+</a>
+<p class="sub">본점 Wollzeile 38 4.2 (14,352) · 오페라 앞 Walfischgasse 5 4.2 (7,890)</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Schweizerhaus%2C%20Prater%20116%2C%201020%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">슈텔제(슈바인학센) · 대형 비어가르텐<span class="tag tag-me">내 리스트</span></span>
+<span class="en">Schweizerhaus</span>
+<span class="addr">Prater 116, 1020 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.3</span><span class="rev">32,332</span></span>
+</a>
+<p class="note">프라터 공원 안 — 관광 목록의 프라터와 한 번에 묶으면 됩니다. 보통 3~10월만 영업</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=AIDA%20-%20Caf%C3%A9-Konditorei%2C%20Wollzeile%2028%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">아이다 — 비엔나 커피<span class="tag tag-me">내 리스트</span></span>
+<span class="en">AIDA - Café-Konditorei</span>
+<span class="addr">Wollzeile 28, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.3</span><span class="rev">1,130</span></span>
+</a>
+<p class="sub">다른 지점 — Bognergasse 3 4.0 (1,298) · Opernring 7 3.8 (2,190) · 슈테판 성당 옆 Singerstraße 1 3.7 (10,219)</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Bitzinger%2C%20Albertinaplatz%201%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">비트징어 — 케제크라이너<span class="tag tag-me">내 리스트</span></span>
+<span class="en">Bitzinger</span>
+<span class="addr">Albertinaplatz 1, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.1</span><span class="rev">7,092</span></span>
+</a>
+<p class="note">오페라 극장 뒤 · 리뷰 키워드 käsekrainer 446건 · 새벽 4시까지</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Sacher%2C%20Philharmoniker%20Str.%204%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">자허토르테</span>
+<span class="en">Café Sacher</span>
+<span class="addr">Philharmoniker Str. 4, 1010 Wien</span>
+</span>
+<span class="score t-c"><span class="num">3.9</span><span class="rev">20,350</span></span>
+</a>
+<p class="note">평점은 낮지만 대기줄은 깁니다 — 대부분 웨이팅·가격 관련 리뷰</p>
+</li>
+</ol>
+<h3 class="grp"><span>관광 · 장소</span><span class="grp-n">21곳</span></h3>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Museum%20of%20Natural%20History%20Vienna%2C%20Burgring%207%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">자연사 박물관</span>
+<span class="en">Museum of Natural History Vienna · Naturhistorisches Museum</span>
+<span class="addr">Burgring 7, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">43,755</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Michaelerplatz%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">미카엘 광장</span>
+<span class="en">Michaelerplatz</span>
+<span class="addr">1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">686</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Kohlmarkt%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">콜마르크트</span>
+<span class="en">Kohlmarkt</span>
+<span class="addr">1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">332</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Sch%C3%B6nbrunn%20Palace%2C%20Sch%C3%B6nbrunner%20Schlo%C3%9Fstra%C3%9Fe%2047%2C%201130%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">쇤브룬 궁전<span class="tag tag-both">둘 다</span></span>
+<span class="en">Schönbrunn Palace · Schloss Schönbrunn</span>
+<span class="addr">Schönbrunner Schloßstraße 47, 1130 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">185,238</span></span>
+</a>
+<p class="note">메모: 여름엔 쇤브룬, 겨울엔 호프부르크</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=St.%20Stephen%27s%20Cathedral%2C%20Stephansplatz%203%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">슈테판 대성당<span class="tag tag-both">둘 다</span></span>
+<span class="en">St. Stephen&#x27;s Cathedral · Domkirche St. Stephan</span>
+<span class="addr">Stephansplatz 3, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">139,426</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Belvedere%20Palace%2C%201030%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">벨베데레 궁전<span class="tag tag-both">둘 다</span></span>
+<span class="en">Belvedere Palace · Schloss Belvedere</span>
+<span class="addr">1030 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">90,406</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Hofburg%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">호프부르크 왕궁 (시내 안 궁)<span class="tag tag-both">둘 다</span></span>
+<span class="en">Hofburg</span>
+<span class="addr">1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">59,762</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=St.%20Peter%27s%20Church%2C%20Petersplatz%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">성 페터 성당</span>
+<span class="en">St. Peter&#x27;s Church · Peterskirche</span>
+<span class="addr">Petersplatz, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">8,811</span></span>
+</a>
+<p class="note">메모: 오후 3시 파이프오르간 연주 (매일 오르간 리사이틀)</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Wien%20Museum%20Karlsplatz%2C%20Karlsplatz%208%2C%201040%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">빈 박물관</span>
+<span class="en">Wien Museum Karlsplatz</span>
+<span class="addr">Karlsplatz 8, 1040 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">4,672</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Vienna%20City%20Hall%2C%20Friedrich-Schmidt-Platz%201%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">빈 시청사</span>
+<span class="en">Vienna City Hall · Das Wiener Rathaus</span>
+<span class="addr">Friedrich-Schmidt-Platz 1, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">4,369</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Leopoldsbrunnen%2C%20Graben%2029%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">레오폴트 분수 (그라벤)</span>
+<span class="en">Leopoldsbrunnen</span>
+<span class="addr">Graben 29, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">215</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Prater%2C%201020%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">프라터 공원</span>
+<span class="en">Prater</span>
+<span class="addr">1020 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">141,371</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=St.%20Charles%27s%20Church%2C%20Karlsplatz%2C%201040%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">카를 성당</span>
+<span class="en">St. Charles&#x27;s Church · Karlskirche</span>
+<span class="addr">Karlsplatz, 1040 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">31,621</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=State%20Hall%20of%20the%20Austrian%20National%20Library%2C%20Josefsplatz%201%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">오스트리아 국립도서관</span>
+<span class="en">State Hall of the Austrian National Library · Prunksaal</span>
+<span class="addr">Josefsplatz 1, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">5,517</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Josefsbrunnen%2C%20Graben%2022%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">요제프 분수 (그라벤)</span>
+<span class="en">Josefsbrunnen</span>
+<span class="addr">Graben 22, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">146</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Hundertwasser%20House%2C%20Kegelgasse%2036-38%2C%201030%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">훈데르트바서 하우스</span>
+<span class="en">Hundertwasser House</span>
+<span class="addr">Kegelgasse 36-38, 1030 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.5</span><span class="rev">35,113</span></span>
+</a>
+<p class="note">메모: 1·2번 트램으로 링 한 바퀴 = 시티투어</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Sisi%20Museum%2C%20Michaelerkuppel%2C%201010%20Wien%20%28%ED%98%B8%ED%94%84%EB%B6%80%EB%A5%B4%ED%81%AC%20%EB%82%B4%29" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">시시 박물관</span>
+<span class="en">Sisi Museum</span>
+<span class="addr">Michaelerkuppel, 1010 Wien (호프부르크 내)</span>
+</span>
+<span class="score t-b"><span class="num">4.4</span><span class="rev">20,179</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Mozarthaus%20Vienna%2C%20Domgasse%205%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">모차르트 하우스</span>
+<span class="en">Mozarthaus Vienna · Wien Museum Mozart apartment</span>
+<span class="addr">Domgasse 5, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.0</span><span class="rev">9,291</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Naschmarkt%2C%20Linke/Rechte%20Wienzeile%2C%201060%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">나슈마르크트</span>
+<span class="en">Naschmarkt</span>
+<span class="addr">Linke/Rechte Wienzeile, 1060 Wien</span>
+</span>
+<span class="score t-c"><span class="num">3.6</span><span class="rev">1,018</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Stephansplatz%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">슈테판츠플라츠<span class="tag tag-me">내 리스트</span></span>
+<span class="en">Stephansplatz</span>
+<span class="addr">1010 Wien</span>
+</span>
+<span class="score t-none"><span class="num">—</span><span class="rev">평점 없음</span></span>
+</a>
+<p class="note">슈테판 대성당 앞 광장 · 구글맵에 광장으로만 등록되어 평점이 없습니다</p>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=K%C3%A4rntner%20Str.%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">케른트너 거리</span>
+<span class="en">Kärntner Str.</span>
+<span class="addr">1010 Wien</span>
+</span>
+<span class="score t-none"><span class="num">—</span><span class="rev">평점 없음</span></span>
+</a>
+<p class="note">구글맵에 &#x27;거리&#x27;로만 등록되어 있어 평점이 없습니다</p>
+</li>
+</ol>
+</section>
+
+<section class="dishes" id="dishes">
+  <h2>메뉴별 가게</h2>
+  <p class="lead">메모에 음식만 적혀 있던 항목들입니다. 그 음식으로 구글맵을 검색해 평점 높은 순으로 세 곳씩 골랐습니다.</p>
+<h3 class="grp"><span>프라하</span><span class="grp-n">5가지</span></h3>
+<div class="dish">
+<h4 class="dish-h"><span class="dish-ko">육회 타르타르</span><span class="dish-en">Tatarák · 빵에 마늘 문질러 얹어 먹는 체코식 육회</span></h4>
+<p class="note">메모 ②번. 이미 목록에 있는 칸티나(4.6 · 13,930)도 리뷰 키워드 1위가 beef tartare입니다.</p>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=U%20Glaubic%C5%AF%2C%20Malostransk%C3%A9%20n%C3%A1m.%20266/5%2C%20Mal%C3%A1%20Strana" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">U Glaubiců</span>
+<span class="en">맥주홀 · 말라스트라나</span>
+<span class="addr">Malostranské nám. 266/5, Malá Strana</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">21,229</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Kozlovna%20U%20Paukerta%2C%20N%C3%A1rodn%C3%AD%20981/17%2C%20Nov%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Kozlovna U Paukerta</span>
+<span class="en">코즐 맥주집 · 신시가지</span>
+<span class="addr">Národní 981/17, Nové Město</span>
+</span>
+<span class="score t-b"><span class="num">4.5</span><span class="rev">6,646</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Lok%C3%A1l%20U%20Jir%C3%A1ta%2C%20Vodi%C4%8Dkova%20696/26%2C%20Nov%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Lokál U Jiráta</span>
+<span class="en">로칼 체인 · 신시가지</span>
+<span class="addr">Vodičkova 696/26, Nové Město</span>
+</span>
+<span class="score t-b"><span class="num">4.5</span><span class="rev">2,261</span></span>
+</a>
+</li>
+</ol>
+</div>
+<div class="dish">
+<h4 class="dish-h"><span class="dish-ko">굴라쉬</span><span class="dish-en">Guláš · 체코식 소고기 스튜</span></h4>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=U%20Glaubic%C5%AF%2C%20Malostransk%C3%A9%20n%C3%A1m.%20266/5%2C%20Mal%C3%A1%20Strana" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">U Glaubiců</span>
+<span class="en">맥주홀 · 말라스트라나</span>
+<span class="addr">Malostranské nám. 266/5, Malá Strana</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">21,229</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=U%20Pivrnce%2C%20Maiselova%2060/3%2C%20Josefov" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">U Pivrnce</span>
+<span class="en">체코 선술집 · 유대인지구</span>
+<span class="addr">Maiselova 60/3, Josefov</span>
+</span>
+<span class="score t-b"><span class="num">4.5</span><span class="rev">9,609</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Lok%C3%A1l%20Dlouh%C3%A1%C3%A1%C3%A1%2C%20Dlouh%C3%A1%2033%2C%20Star%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Lokál Dlouhááá</span>
+<span class="en">로칼 본점 · 구시가지</span>
+<span class="addr">Dlouhá 33, Staré Město</span>
+</span>
+<span class="score t-b"><span class="num">4.4</span><span class="rev">23,749</span></span>
+</a>
+</li>
+</ol>
+</div>
+<div class="dish">
+<h4 class="dish-h"><span class="dish-ko">뜨르들로</span><span class="dish-en">Trdelník · 굴뚝빵</span></h4>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Trdeln%C3%ADk%20%26%20Coffee%2C%20U%20Star%C3%A9ho%20H%C5%99bitova%2042/2%2C%20Josefov" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Trdelník &amp; Coffee</span>
+<span class="en">전문점 · 유대인지구</span>
+<span class="addr">U Starého Hřbitova 42/2, Josefov</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">4,038</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Good%20Food%20Coffee%20%26%20Bakery%2C%20Husova%20157/18%2C%20Star%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Good Food Coffee &amp; Bakery</span>
+<span class="en">베이커리 · 구시가지</span>
+<span class="addr">Husova 157/18, Staré Město</span>
+</span>
+<span class="score t-b"><span class="num">4.3</span><span class="rev">4,116</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Trdelnik%2C%20Karlova%20187/6%2C%20Star%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Trdelnik</span>
+<span class="en">카를교 가는 길</span>
+<span class="addr">Karlova 187/6, Staré Město</span>
+</span>
+<span class="score t-b"><span class="num">4.1</span><span class="rev">1,099</span></span>
+</a>
+</li>
+</ol>
+</div>
+<div class="dish">
+<h4 class="dish-h"><span class="dish-ko">헤르멜린</span><span class="dish-en">Nakládaný hermelín · 절인 카망베르</span></h4>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Lok%C3%A1l%20U%20B%C3%ADl%C3%A9%20ku%C5%BEelky%2C%20M%C3%AD%C5%A1e%C5%88sk%C3%A1%2012%2C%20Mal%C3%A1%20Strana" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Lokál U Bílé kuželky</span>
+<span class="en">카를교 건너자마자</span>
+<span class="addr">Míšeňská 12, Malá Strana</span>
+</span>
+<span class="score t-b"><span class="num">4.5</span><span class="rev">9,843</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=U%20Pivrnce%2C%20Maiselova%2060/3%2C%20Josefov" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">U Pivrnce</span>
+<span class="en">체코 선술집 · 유대인지구</span>
+<span class="addr">Maiselova 60/3, Josefov</span>
+</span>
+<span class="score t-b"><span class="num">4.5</span><span class="rev">9,609</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Lok%C3%A1l%20Dlouh%C3%A1%C3%A1%C3%A1%2C%20Dlouh%C3%A1%2033%2C%20Star%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Lokál Dlouhááá</span>
+<span class="en">로칼 본점 · 구시가지</span>
+<span class="addr">Dlouhá 33, Staré Město</span>
+</span>
+<span class="score t-b"><span class="num">4.4</span><span class="rev">23,749</span></span>
+</a>
+</li>
+</ol>
+</div>
+<div class="dish">
+<h4 class="dish-h"><span class="dish-ko">콜라체</span><span class="dish-en">Koláče · 체코식 과일빵</span></h4>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Kolacherie%20Kampus%20Hybernsk%C3%A1%2C%20Hybernsk%C3%A1%20998/4%2C%20Nov%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Kolacherie Kampus Hybernská</span>
+<span class="en">콜라체 전문점</span>
+<span class="addr">Hybernská 998/4, Nové Město</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">1,928</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Staro%C4%8Desk%C3%A1%20pek%C3%A1rna%20-%20cukr%C3%A1rna%2C%20Perlov%C3%A1%208%2C%20Star%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Staročeská pekárna - cukrárna</span>
+<span class="en">옛날식 빵집 · 과자점</span>
+<span class="addr">Perlová 8, Staré Město</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">380</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Pek%C3%A1rna%20Kab%C3%A1t%2C%20N%C3%A1rodn%C3%AD%2063/26%2C%20Nov%C3%A9%20M%C4%9Bsto" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Pekárna Kabát</span>
+<span class="en">테스코와 같은 건물</span>
+<span class="addr">Národní 63/26, Nové Město</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">48</span></span>
+</a>
+</li>
+</ol>
+</div>
+<h3 class="grp"><span>비엔나</span><span class="grp-n">3가지</span></h3>
+<div class="dish">
+<h4 class="dish-h"><span class="dish-ko">슈니첼</span><span class="dish-en">Wiener Schnitzel · 메모에는 포도주스와 함께</span></h4>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Schnitzel%20One%2C%20Neuer%20Markt%208A%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Schnitzel One</span>
+<span class="en">평점 1위</span>
+<span class="addr">Neuer Markt 8A, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">21,323</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Dom%20Schnitzel%2C%20Goldschmiedgasse%206%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Dom Schnitzel</span>
+<span class="en">슈테판 성당 옆</span>
+<span class="addr">Goldschmiedgasse 6, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.8</span><span class="rev">10,568</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Figlm%C3%BCller%20%E2%80%93%20Restaurant%20B%C3%A4ckerstra%C3%9Fe%2C%20B%C3%A4ckerstra%C3%9Fe%206%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Figlmüller – Restaurant Bäckerstraße<span class="tag tag-me">내 리스트</span></span>
+<span class="en">가장 유명한 집 · 접시보다 큰 슈니첼</span>
+<span class="addr">Bäckerstraße 6, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.3</span><span class="rev">33,212</span></span>
+</a>
+</li>
+</ol>
+</div>
+<div class="dish">
+<h4 class="dish-h"><span class="dish-ko">아인슈페너</span><span class="dish-en">Einspänner · 휘핑크림 올린 비엔나 커피</span></h4>
+<p class="note">가장 유명한 Café Central(4.3 · 30,405)은 현재 구글맵에 ‘임시 휴업’으로 표시되어 있습니다. 가시기 전에 한 번 확인하세요.</p>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Fenster%20Caf%C3%A9%2C%20Griechengasse%2010%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Fenster Café</span>
+<span class="en">작은 창구형 카페 · 평점 최상</span>
+<span class="addr">Griechengasse 10, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.7</span><span class="rev">7,879</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Landtmann%2C%20Universit%C3%A4tsring%204%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Café Landtmann</span>
+<span class="en">1873년 전통 카페 · 시청사 앞</span>
+<span class="addr">Universitätsring 4, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.4</span><span class="rev">21,105</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Demel%20Vienna%20cafe%2C%20Kohlmarkt%2014%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Demel Vienna cafe · Café Demel</span>
+<span class="en">1888년 살롱 · 콜마르크트 구경하며</span>
+<span class="addr">Kohlmarkt 14, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.2</span><span class="rev">22,221</span></span>
+</a>
+</li>
+</ol>
+</div>
+<div class="dish">
+<h4 class="dish-h"><span class="dish-ko">카이저슈마른</span><span class="dish-en">Kaiserschmarrn · 찢어 먹는 팬케이크 디저트</span></h4>
+<ol class="rows">
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Kaiser%27s%20%E2%80%93%20Kaiser%27schmarrn%2C%20Franz-Josefs-Kai%2013%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Kaiser&#x27;s – Kaiser&#x27;schmarrn</span>
+<span class="en">전문점 · 도나우 운하 앞</span>
+<span class="addr">Franz-Josefs-Kai 13, 1010 Wien</span>
+</span>
+<span class="score t-a"><span class="num">4.6</span><span class="rev">513</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Caf%C3%A9%20Landtmann%2C%20Universit%C3%A4tsring%204%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Café Landtmann</span>
+<span class="en">전통 카페 · 커피와 함께</span>
+<span class="addr">Universitätsring 4, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.4</span><span class="rev">21,105</span></span>
+</a>
+</li>
+<li class="row">
+<a class="hit" href="https://www.google.com/maps/search/?api=1&query=Heindl%27s%20Schmarren%20%26%20Palatschinkenkuchl%2C%20K%C3%B6llnerhofgasse%204%2C%201010%20Wien" target="_blank" rel="noopener">
+<span class="names">
+<span class="ko">Heindl&#x27;s Schmarren &amp; Palatschinkenkuchl</span>
+<span class="en">팔라친켄 전문 식당</span>
+<span class="addr">Köllnerhofgasse 4, 1010 Wien</span>
+</span>
+<span class="score t-b"><span class="num">4.2</span><span class="rev">4,560</span></span>
+</a>
+</li>
+</ol>
+</div>
+
+  <h3 class="grp"><span>마트에서 살 것</span><span class="grp-n">가게 검색 불필요</span></h3>
+  <p class="lead">아래 네 가지는 위 목록의 <b>테스코(Národní 63/26)</b>나 <b>알버트(nám. Republiky)</b>에서 삽니다.</p>
+  <ul class="dish-list">
+<li><span class="d">납작복숭아</span><span class="g">여름 제철 과일</span></li>
+<li><span class="d">마렝카 꿀케이크</span><span class="g">Marlenka · 프라하에 매장은 없고 마트에서 팝니다</span></li>
+<li><span class="d">구워 먹는 치즈</span><span class="g">Grilovací sýr</span></li>
+<li><span class="d">요플레</span><span class="g">현지 요거트</span></li>
+  </ul></section>
+
+<section class="memo" id="memo">
+  <h2>원본 메모</h2>
+  <p class="lead">판독한 내용이 맞는지 확인용으로 함께 올려둡니다.</p>
+  <figure>
+    <img src="memo.jpg" alt="부모님이 손으로 적은 체코·오스트리아 여행 음식·장소 목록">
+    <figcaption>체코 프라하 3박 / 체스키 · 오스트리아 잘츠부르크 1박, 비엔나 4박, 할슈타트</figcaption>
+  </figure>
+  <blockquote>
+    그냥 공부했으니 동선 안 맞으면 pass 해도 됨
+    <cite>— 메모 맨 아래 초록색 글씨</cite>
+  </blockquote>
+</section>
+</main>
+
+<footer>
+  확인이 필요한 두 가지 — 꼴레뇨 메모의 “구시가지 노란색 집”은 구글맵상 Pork&#39;s 지점이 말라스트라나(Mostecká)와 신시가지(Vodičkova) 두 곳뿐이라 어느 쪽인지 확실하지 않습니다. 케른트너 거리와 나슈마르크트는 구글맵에 거리·시장 구역으로 등록되어 평점이 없거나 낮게 잡힙니다.<br>
+  평점과 리뷰 수는 조회 시점 기준이라 조금씩 변합니다.
+</footer>
+</div>
+
+</body>
+</html>
